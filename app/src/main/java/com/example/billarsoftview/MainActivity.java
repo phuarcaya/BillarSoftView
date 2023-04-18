@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     if (url != null) {
-                        if(url.contains("whatsapp://") || url.contains("wa.me")){
+                        if (url.contains("whatsapp://") || url.contains("wa.me")) {
                             view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-                        }else {
+                        } else {
                             webView.loadUrl(url);
                         }
                         return true;
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
-            /*webView.loadUrl("https://ciprdeuswa01.azurewebsites.net");*/
             webView.loadUrl(urlWebApp);
         } else {
             Toast.makeText(MainActivity.this, "Error de red!. Por favor, revise su conexión a internet y vuelva a ingresar.", Toast.LENGTH_SHORT).show();
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public static boolean isNetworkAvaliable(Context ctx) {
+/*    public static boolean isNetworkAvaliable(Context ctx) {
         ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
         if ((connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
                 || (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)) {
@@ -98,6 +97,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             return false;
         }
-    }
+    }*/
 
+    public static boolean isNetworkAvaliable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean result = false;
+        if (activeNetwork != null) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI || activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                result = true;
+            }
+        }
+        return result;
+    }
 }
