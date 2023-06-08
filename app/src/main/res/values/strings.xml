@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">Billar Soft</string>
-    <string name="urlWebApp">http://phuarcaya-001-site10.atempurl.com</string>
+    <string name="app_name">Billarsoft</string>
+    <string name="urlWebApp">http://phuarcaya-001-site17.atempurl.com</string>
+    <!--    <string name="urlWebApp">http://phuarcaya-001-site10.atempurl.com</string>-->
     <!--<string name="app_name">Billar Bola15</string>
     <string name="urlWebApp">http://phuarcaya-001-site3.atempurl.com</string>-->
     <!--<string name="app_name">Billar Bola15 02</string>
     <string name="urlWebApp">http://phuarcaya-001-site15.atempurl.com</string>-->
-<!--    <string name="app_name">San Marcos</string>
-    <string name="urlWebApp">http://phuarcaya-001-site16.atempurl.com</string>-->
+    <!--    <string name="app_name">San Marcos</string>
+        <string name="urlWebApp">http://phuarcaya-001-site16.atempurl.com</string>-->
 </resources>
