@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     if (url != null) {
+                        //Log.e("url",url);
                         if (url.contains("whatsapp://") || url.contains("wa.me")) {
                             view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                         } else {
