@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Billarsoft</string>
-    <string name="urlWebApp">http://phuarcaya-001-site17.atempurl.com</string>
+    <string name="urlWebApp">https://billarsoft360.com</string>
+    <!--    <string name="urlWebApp">http://controlgastos.op-valle.pe</string>-->
     <!--    <string name="urlWebApp">http://phuarcaya-001-site10.atempurl.com</string>-->
     <!--<string name="app_name">Billar Bola15</string>
     <string name="urlWebApp">http://phuarcaya-001-site3.atempurl.com</string>-->

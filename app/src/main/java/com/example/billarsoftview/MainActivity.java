@@ -1,16 +1,13 @@
 package com.example.billarsoftview;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -38,10 +35,17 @@ public class MainActivity extends AppCompatActivity {
             webView.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
             webView.clearHistory();
 
-            webView.setWebViewClient(new WebViewClient() {
+            webView.loadUrl(urlWebApp);
+            webView.setWebViewClient(new WebViewClient());
+            webView.setWebChromeClient(new WebChromeClient());
+            webView.setWebChromeClient(new WebChromeClient(){
+
+            });
+
+            /*webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    if (url != null) {
+                    *//*if (url != null) {
                         //Log.e("url",url);
                         if (url.contains("whatsapp://") || url.contains("wa.me")) {
                             view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
@@ -51,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     } else {
                         return false;
-                    }
+                    }*//*
+
+                    view.loadUrl(url);
+                    return true;
                 }
 
                 @Override
@@ -64,9 +71,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error: " + description, Toast.LENGTH_SHORT).show();
                 }
 
-            });
+            });*/
 
-            webView.loadUrl(urlWebApp);
         } else {
             Toast.makeText(MainActivity.this, "Error de red!. Por favor, revise su conexión a internet y vuelva a ingresar.", Toast.LENGTH_SHORT).show();
             Handler handler = new Handler();
@@ -78,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             }, 1000);
         }
     }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // Check if the key event was the Back button and if there's history
